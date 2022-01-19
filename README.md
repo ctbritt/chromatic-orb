@@ -10,8 +10,6 @@ This is a basic Item Macro that will take the damage you've selected when you ca
 - Sequencer
 - WarpGate (for the menu)
 
-## Entire
-
 ## Kudos
 
 As usual, Honeybadger, Freeze and Wasp were immensely helpful on the Foundry discord. They are heroes.
