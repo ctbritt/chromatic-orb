@@ -6,7 +6,7 @@ This is a basic Item Macro that will take the damage you've selected when you ca
 
 - Item Macro
 - Midi-Qol
-- JB2A Patreon (you can set up your own special effects with some tinkering)
+- JB2A (you can set up your own special effects with some tinkering)
 - Sequencer
 - WarpGate (for the menu)
 

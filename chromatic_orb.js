@@ -1,6 +1,6 @@
 await warpgate.wait(100);
 
-//define damage types and their colors. The colors correspond to those on Jb2a's patreon guiding bolt animation.
+//define damage types and their colors. The colors correspond to those on Jb2a's guiding bolt animation.
 
 const damage_types = {
   acid: "greenorange",
@@ -72,7 +72,7 @@ new Sequence()
   .filter("Glow", { color: 0xffffbf })
   .waitUntilFinished(-500)
   .effect()
-  .file("jb2a.guiding_bolt.01." + colorD)
+  .file("jb2a.guiding_bolt.02." + colorD) // this is from JB2A collection.
   .fadeIn(500)
   .fadeOut(300)
   .atLocation(tokenD)
