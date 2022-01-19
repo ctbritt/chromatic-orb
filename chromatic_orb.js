@@ -1,4 +1,5 @@
-await warpgate.wait(100);
+// does it hit? If not, never mind...
+if (args[0].hitTargets.length === 0) return {};
 
 //define damage types and their colors. The colors correspond to those on Jb2a's guiding bolt animation.
 
@@ -33,26 +34,23 @@ let tokenD = canvas.tokens.get(args[0].tokenId); // caster token
 let target = canvas.tokens.get(args[0].hitTargets[0].id); // target token
 
 // roll the damage and apply the proper form based on choice above
-(async () => {
-  if (args[0].hitTargets.length === 0) return {};
-  let actorD = game.actors.get(args[0].actor._id);
-  let level = Number(args[0].spellLevel) + 2;
-  let damageDice = args[0].isCritical ? level * 2 : level;
-  let damageRoll = new Roll(`${damageDice}d8`).evaluate({ async: false });
-  new MidiQOL.DamageOnlyWorkflow(
-    actorD,
-    tokenD,
-    damageRoll.total,
-    damage,
-    [target],
-    damageRoll,
-    {
-      flavor: `(${CONFIG.DND5E.damageTypes[damage]})`,
-      itemCardId: args[0].itemCardId,
-      useOther: false,
-    }
-  );
-})();
+let actorD = game.actors.get(args[0].actor._id);
+let level = Number(args[0].spellLevel) + 2;
+let damageDice = args[0].isCritical ? level * 2 : level;
+let damageRoll = new Roll(`${damageDice}d8`).evaluate({ async: false });
+new MidiQOL.DamageOnlyWorkflow(
+  actorD,
+  tokenD,
+  damageRoll.total,
+  damage,
+  [target],
+  damageRoll,
+  {
+    flavor: `(${CONFIG.DND5E.damageTypes[damage]})`,
+    itemCardId: args[0].itemCardId,
+    useOther: false,
+  }
+);
 
 // Fancy special effects
 new Sequence()
